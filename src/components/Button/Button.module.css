@@ -1,0 +1,13 @@
+.button {
+    background-color: var(--blue);
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+.outline {
+    background: white;
+    color: var(--blue);
+    border: 1px solid var(--blue);
+}

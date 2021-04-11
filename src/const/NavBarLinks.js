@@ -8,7 +8,7 @@ export const LINKS = [
     path: "/",
   },
   {
-    title: "Third",
-    path: "/",
+    title: "Login",
+    path: "/login",
   },
 ];

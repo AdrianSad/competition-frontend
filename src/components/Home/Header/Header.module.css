@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 180px;
+}
+
+.title {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.description {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.5;
+  margin-top: 32px;
+}
