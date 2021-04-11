@@ -1,0 +1,45 @@
+.container {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerRight {
+    margin-left: 50px;
+}
+
+.img {
+    width: 635px;
+    height: 512px;
+    margin-right: 50px;
+}
+
+.aboutText {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.headerText {
+    font-size: 32px;
+    font-weight: 700;
+    max-width: 350px;
+}
+
+.descText {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.5;
+    max-width: 350px;
+    margin-bottom: 25px;
+}
+
+.button {
+    background: white;
+    padding: 10px 25px;
+    color: var(--blue);
+    border: 1px solid var(--blue);
+    text-decoration: none;
+    font-weight: 700;
+}
