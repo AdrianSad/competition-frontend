@@ -1,7 +1,7 @@
 export const LINKS = [
   {
-    title: "First",
-    path: "/",
+    title: "Competitions",
+    path: "/competitions",
   },
   {
     title: "Add competition",

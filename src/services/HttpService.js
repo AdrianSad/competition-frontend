@@ -19,7 +19,6 @@ class HttpService {
         password,
       })
       .then((response) => {
-        console.log(response);
         if (response.data.token) {
           localStorage.setItem("user", JSON.stringify(response.data));
           this.setTokenResult(response.data.token);
@@ -52,6 +51,8 @@ class HttpService {
       image,
       usernames,
     });
+
+  getCompetitions = () => this.axios.get(COMPETITION);
 }
 
 export default new HttpService();
