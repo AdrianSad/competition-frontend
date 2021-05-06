@@ -1,7 +1,7 @@
 .line {
-    border-bottom: 1px solid black;
-    opacity: 0.2;
-    margin: 0 200px;
-    display: flex;
-    justify-content: center;
+  border-bottom: 1px solid black;
+  opacity: 0.2;
+  margin: 0 200px;
+  display: flex;
+  justify-content: center;
 }
