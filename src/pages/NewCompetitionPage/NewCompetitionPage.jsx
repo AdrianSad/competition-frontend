@@ -4,13 +4,15 @@ import { Formik, Field, Form, ErrorMessage, FieldArray } from "formik";
 import Button from "../../components/Button/Button";
 import ImageDrop from "../../components/ImageDrop/ImageDrop";
 import { isEmpty } from "lodash";
+
+import { withRouter } from "react-router";
 import HttpService from "../../services/HttpService";
 import { HOME } from "../../const/routes";
-import { withRouter } from "react-router";
 
 class NewCompetitionPage extends Component {
   onSubmit = (values) => {
     values.friends = values.friends.filter((item) => item.username !== "");
+    console.log(values.image);
     HttpService.createCompetition(
       values.title,
       values.description,

@@ -44,8 +44,7 @@ class HttpService {
     }
   };
 
-  createCompetition = (title, description, category, image, usernames) => {
-    console.log(usernames);
+  createCompetition = (title, description, category, image, usernames) =>
     this.axios.post(COMPETITION, {
       title,
       description,
@@ -53,7 +52,6 @@ class HttpService {
       image,
       usernames,
     });
-  };
 }
 
 export default new HttpService();
