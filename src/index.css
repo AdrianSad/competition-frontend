@@ -1,14 +1,15 @@
 :root {
-  --light-black: #373f41;
-  --grey: #737b7d;
-  --blue: #3c64b1;
-  --light-blue: rgba(60, 100, 177, 0.06);
+    --light-black: #373f41;
+    --grey: #737b7d;
+    --blue: #3c64b1;
+    --light-blue: rgba(60, 100, 177, 0.06);
 }
 
 body {
-  margin: 0;
-  font-family: "Lato", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--light-black);
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--light-black);
+    box-sizing: border-box;
 }

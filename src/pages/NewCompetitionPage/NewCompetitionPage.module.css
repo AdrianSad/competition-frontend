@@ -1,86 +1,86 @@
 .row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 1200px;
-    gap: 125px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 1200px;
+  gap: 125px;
 }
 
 .column {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: column;
-    padding: 20px 0 100px 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  padding: 20px 0 100px 0;
 }
 
 .columnRight {
-    flex: 1;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-flow: column;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-flow: column;
 }
 
 .columnLeft {
-    flex: 1;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-flow: column;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-flow: column;
 }
 
 .header {
-    font-weight: 700;
-    font-size: 32px;
+  font-weight: 700;
+  font-size: 32px;
 }
 
 .error {
-    margin-top: 5px;
-    color: darkred;
+  margin-top: 5px;
+  color: darkred;
 }
 
 .button {
-    background-color: var(--blue);
-    border: none;
-    color: white;
-    padding: 10px 25px;
-    cursor: pointer;
+  background-color: var(--blue);
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  cursor: pointer;
 }
 
 .marginTop {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .label {
-    position: static;
-    padding: 5px;
+  position: static;
+  padding: 5px;
 }
 
 .inputContainer {
-    width: 100%;
-    margin: 10px 0;
+  width: 100%;
+  margin: 10px 0;
 }
 
 .input {
-    width: 100%;
-    resize: none;
-    padding: 10px;
-    border: 1px solid var(--blue);
-    font-family: "Lato", sans-serif;
+  width: 100%;
+  resize: none;
+  padding: 10px;
+  border: 1px solid var(--blue);
+  font-family: "Lato", sans-serif;
 }
 
 .imageDropzone {
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
 }
 
 .friendContainer {
-    margin: 25px 0;
+  margin: 25px 0;
 }
 
 .list {
-    list-style: square;
+  list-style: square;
 }

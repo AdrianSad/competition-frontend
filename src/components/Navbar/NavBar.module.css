@@ -1,48 +1,48 @@
 .container {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-    height: 32px;
-    padding: 25px 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  height: 32px;
+  padding: 25px 0;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--blue);
-    text-decoration: none;
-    letter-spacing: 1px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+  letter-spacing: 1px;
 }
 
 .list {
-    list-style: none;
+  list-style: none;
 }
 
 .listItem {
-    display: inline-block;
-    padding: 0 20px;
+  display: inline-block;
+  padding: 0 20px;
 }
 
 .navItem {
-    text-decoration: none;
-    color: var(--light-black);
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.5px;
+  text-decoration: none;
+  color: var(--light-black);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
 .rightContainer {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .icon {
-    color: var(--light-black);
+  color: var(--light-black);
 }
 
 .avatar {
-    width: 48px;
-    height: 48px;
-    padding-left: 15px;
+  width: 48px;
+  height: 48px;
+  padding-left: 15px;
 }
