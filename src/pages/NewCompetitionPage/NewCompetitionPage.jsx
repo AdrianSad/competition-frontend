@@ -4,24 +4,33 @@ import { Formik, Field, Form, ErrorMessage, FieldArray } from "formik";
 import Button from "../../components/Button/Button";
 import ImageDrop from "../../components/ImageDrop/ImageDrop";
 import { isEmpty } from "lodash";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { withRouter } from "react-router";
 import HttpService from "../../services/HttpService";
 import { HOME } from "../../const/routes";
+import Spinner from "../../components/Loader/Spinner";
 
 class NewCompetitionPage extends Component {
+  state = {
+    loading: false,
+  };
   onSubmit = (values) => {
+    this.setState({ loading: true });
     values.friends = values.friends.filter((item) => item.username !== "");
-    console.log(values.image);
     HttpService.createCompetition(
       values.title,
       values.description,
       values.category,
       values.image,
-      values.friends
+      values.friends,
+      values.endDate
     )
       .then(() => this.props.history.push(HOME))
-      .catch(console.error);
+      .catch((error) => {
+        this.setState({ loading: false });
+        console.error(error);
+      });
   };
 
   render() {
@@ -29,15 +38,17 @@ class NewCompetitionPage extends Component {
 
     return (
       <main className={styles.column}>
+        <Spinner visible={this.state.loading} />
         <h1 className={styles.header}>
           Add new competition and send invitation to your friends
         </h1>
         <Formik
           initialValues={{
             title: "",
-            category: "",
+            category: "Physical",
             description: "",
             image: "",
+            endDate: new Date(),
             friends: [{ username: "" }],
           }}
           validate={(values) => {
@@ -53,6 +64,9 @@ class NewCompetitionPage extends Component {
             }
             if (!values.image) {
               errors.image = "Image is required";
+            }
+            if (!values.endDate) {
+              errors.endDate = "End date is required";
             }
             if (
               isEmpty(values.friends) ||
@@ -100,9 +114,6 @@ class NewCompetitionPage extends Component {
                       name={"category"}
                       className={styles.input}
                     >
-                      <option value="default" disabled>
-                        Choose category
-                      </option>
                       <option value="physical">Physical</option>
                       <option value="riddles">Riddles</option>
                       <option value="challenges">Challenges</option>
@@ -129,6 +140,22 @@ class NewCompetitionPage extends Component {
                     />
                     <p className={styles.error}>
                       <ErrorMessage name="description" />
+                    </p>
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <label htmlFor={"endDate"} className={styles.label}>
+                      Select end date for your competition
+                    </label>
+                    <DatePicker
+                      dateFormat={"dd/MM/yyyy"}
+                      selected={values.endDate}
+                      className={styles.input}
+                      onSelect={(endDate) => {
+                        setFieldValue("endDate", endDate);
+                      }}
+                    />
+                    <p className={styles.error}>
+                      <ErrorMessage name="endDate" />
                     </p>
                   </div>
                   <div className={styles.inputContainer}>

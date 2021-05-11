@@ -12,9 +12,9 @@ class LoginAndRegisterPage extends Component {
     );
   };
   handleLogin = (username, password) => {
-    HttpService.loginUser(username, password).then(
-      this.props.history.push(HOME)
-    );
+    HttpService.loginUser(username, password)
+      .then(() => this.props.history.push(HOME))
+      .catch(console.error);
   };
 
   render() {
