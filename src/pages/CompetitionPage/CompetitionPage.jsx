@@ -86,7 +86,7 @@ class CompetitionPage extends Component {
         datasets: dataset,
       },
       predictedData: {
-        labels: data.labelsWholeCompetition.reverse(),
+        labels: Array.from(Object.keys(user[0].predictionData)),
         datasets: predictedSet,
       },
     });
@@ -218,7 +218,7 @@ class CompetitionPage extends Component {
                   noWrap
                   className={styles.header}
                 >
-                  Keep below reps to beat everyone :)
+                  Minimal sum of repetitions every day to win competition :)
                 </Typography>
                 <Line
                   data={predictedData}

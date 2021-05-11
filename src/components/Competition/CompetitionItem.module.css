@@ -1,8 +1,12 @@
 .card {
-  min-width: 200px;
-  border-radius: 0 !important;
+    min-width: 200px;
+    border-radius: 0 !important;
 }
 
 .image {
-  height: 194px;
+    height: 194px;
+}
+
+.icon {
+    color: red;
 }
