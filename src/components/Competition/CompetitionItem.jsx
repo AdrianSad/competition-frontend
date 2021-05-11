@@ -23,6 +23,9 @@ const CompetitionItem = ({ competition }) => {
           <Typography variant="h6" color="textSecondary" noWrap>
             {competition.category}
           </Typography>
+          <Typography variant="h6" color="textSecondary" noWrap>
+            Participants: {competition.usernames.length}
+          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>

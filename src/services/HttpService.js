@@ -1,5 +1,11 @@
 import axios from "axios";
-import { COMPETITION, USER_LOGIN, USER_REGISTER } from "../const/endpoints";
+import {
+  COMPETITION,
+  COMPETITION_DETAILS,
+  COMPETITION_RESULT,
+  USER_LOGIN,
+  USER_REGISTER,
+} from "../const/endpoints";
 
 const baseURL = "http://localhost:8080";
 
@@ -43,16 +49,33 @@ class HttpService {
     }
   };
 
-  createCompetition = (title, description, category, image, usernames) =>
+  logout = () => {
+    localStorage.removeItem("user");
+  };
+
+  createCompetition = (
+    title,
+    description,
+    category,
+    image,
+    usernames,
+    endDate
+  ) =>
     this.axios.post(COMPETITION, {
       title,
       description,
       category,
       image,
       usernames,
+      endDate,
     });
 
   getCompetitions = () => this.axios.get(COMPETITION);
+
+  getCompetitionDetails = (id) => this.axios.get(COMPETITION_DETAILS(id));
+
+  addCompetitionResult = (id, result) =>
+    this.axios.post(COMPETITION_RESULT(id), { result });
 }
 
 export default new HttpService();

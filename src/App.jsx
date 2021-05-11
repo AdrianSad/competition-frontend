@@ -1,13 +1,21 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { COMPETITIONS, HOME, LOGIN, NEW_COMPETITION } from "./const/routes";
+import {
+  COMPETITION,
+  COMPETITIONS,
+  HOME,
+  LOGIN,
+  NEW_COMPETITION,
+} from "./const/routes";
 import {
   CompetitionListPage,
+  CompetitionPage,
   HomePage,
   LoginAndRegisterPage,
   NewCompetitionPage,
 } from "./pages";
 import WithLayout from "./hoc/Layout/WithLayout";
+import withAuthentication from "./hoc/Auth/withAuthentication";
 
 const App = () => {
   return (
@@ -22,12 +30,17 @@ const App = () => {
         <Route
           exact
           path={NEW_COMPETITION}
-          component={WithLayout(NewCompetitionPage)}
+          component={withAuthentication(WithLayout(NewCompetitionPage))}
         />
         <Route
           exact
           path={COMPETITIONS}
-          component={WithLayout(CompetitionListPage)}
+          component={withAuthentication(WithLayout(CompetitionListPage))}
+        />
+        <Route
+          exact
+          path={COMPETITION(":id")}
+          component={withAuthentication(WithLayout(CompetitionPage))}
         />
       </Switch>
     </BrowserRouter>
