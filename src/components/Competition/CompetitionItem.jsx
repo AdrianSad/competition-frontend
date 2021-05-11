@@ -6,8 +6,13 @@ import Typography from "@material-ui/core/Typography";
 import CardContent from "@material-ui/core/CardContent";
 import { Link } from "react-router-dom";
 import CardActionArea from "@material-ui/core/CardActionArea";
+import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { ExitToApp } from "@material-ui/icons";
+import CardActions from "@material-ui/core/CardActions";
 
-const CompetitionItem = ({ competition }) => {
+const CompetitionItem = ({ competition, onLeave, onDelete }) => {
   return (
     <Card className={styles.card}>
       <CardActionArea component={Link} to={`/competition/${competition.id}`}>
@@ -28,6 +33,41 @@ const CompetitionItem = ({ competition }) => {
           </Typography>
         </CardContent>
       </CardActionArea>
+      <CardActions>
+        <Grid
+          container
+          direction="row"
+          justify="flex-end"
+          alignItems="flex-start"
+        >
+          <Grid item>
+            {onLeave && (
+              <IconButton
+                aria-label="add to favorites"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onLeave(competition.id);
+                }}
+              >
+                <ExitToApp className={styles.icon} />
+              </IconButton>
+            )}
+          </Grid>
+          <Grid item>
+            {onDelete && (
+              <IconButton
+                aria-label="share"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onDelete(competition.id);
+                }}
+              >
+                <DeleteIcon className={styles.icon} />
+              </IconButton>
+            )}
+          </Grid>
+        </Grid>
+      </CardActions>
     </Card>
   );
 };

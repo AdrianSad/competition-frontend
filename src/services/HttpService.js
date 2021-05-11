@@ -3,6 +3,7 @@ import {
   COMPETITION,
   COMPETITION_DETAILS,
   COMPETITION_RESULT,
+  LEAVE_COMPETITION,
   USER_LOGIN,
   USER_REGISTER,
 } from "../const/endpoints";
@@ -73,6 +74,10 @@ class HttpService {
   getCompetitions = () => this.axios.get(COMPETITION);
 
   getCompetitionDetails = (id) => this.axios.get(COMPETITION_DETAILS(id));
+
+  leaveCompetition = (id) => this.axios.post(LEAVE_COMPETITION(id));
+
+  deleteCompetition = (id) => this.axios.delete(COMPETITION_DETAILS(id));
 
   addCompetitionResult = (id, result) =>
     this.axios.post(COMPETITION_RESULT(id), { result });

@@ -1,21 +1,21 @@
 .tableContainer {
-    max-width: 1000px;
-    margin: 100px 0 100px 0;
+  max-width: 1000px;
+  margin: 100px 0 100px 0;
 }
 
 .header {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .button {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .textField {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .bottomContainer {
-    margin-top: 20px;
-    margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
