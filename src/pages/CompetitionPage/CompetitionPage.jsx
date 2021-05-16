@@ -220,7 +220,7 @@ class CompetitionPage extends Component {
                   noWrap
                   className={styles.header}
                 >
-                  Keep below reps to beat everyone :)
+                  Minimal sum of repetitions every day to win competition :)
                 </Typography>
                 <Line
                   data={predictedData}
