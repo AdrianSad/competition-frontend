@@ -45,7 +45,6 @@ class CompetitionPage extends Component {
 
   setGraphData = (response) => {
     const data = response.data;
-    console.log(data);
     const labels = data.labels.reverse();
     const dataset = data.usernames.map((item) => {
       const random0 = random(0, 255);
@@ -86,7 +85,7 @@ class CompetitionPage extends Component {
         datasets: dataset,
       },
       predictedData: {
-        labels: data.labelsWholeCompetition.reverse(),
+        labels: Object.keys(user[0].predictionData),
         datasets: predictedSet,
       },
     });
@@ -203,6 +202,9 @@ class CompetitionPage extends Component {
           {!loading && (
             <>
               <div>
+                <Typography variant="h3" noWrap className={styles.header}>
+                  Results :
+                </Typography>
                 <Line
                   data={graphData}
                   options={options}
@@ -251,41 +253,68 @@ class CompetitionPage extends Component {
                   </TableBody>
                 </Table>
               </TableContainer>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+              >
+                {competition.ended ? (
+                  <>
+                    <Typography
+                      variant="h5"
+                      noWrap
+                      className={styles.headerRed}
+                    >
+                      Competition ended!
+                    </Typography>
+                    <Typography
+                      variant="h5"
+                      noWrap
+                      className={styles.wonHeader}
+                    >
+                      {
+                        competition.usernames.reduce((p, c) =>
+                          p.totalSum > c.totalSum ? p : c
+                        ).username
+                      }{" "}
+                      Wygrał!
+                    </Typography>
+                  </>
+                ) : (
+                  <>
+                    <Typography variant="h5" noWrap className={styles.header}>
+                      Insert your result on{" "}
+                      {new Date().toISOString().split("T")[0]}
+                    </Typography>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="center"
+                      alignItems="center"
+                      className={styles.bottomContainer}
+                    >
+                      <TextField
+                        id="result"
+                        label="Your result"
+                        variant="outlined"
+                        type={"number"}
+                        value={result}
+                        onChange={this.onChange}
+                        className={styles.textField}
+                      />
+                      <Button
+                        type={"button"}
+                        text={"Submit"}
+                        onClick={this.sendResult}
+                        className={styles.button}
+                      />
+                    </Grid>
+                  </>
+                )}
+              </Grid>
             </>
           )}
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-          >
-            <Typography variant="h5" noWrap className={styles.header}>
-              Insert your result on {new Date().toISOString().split("T")[0]}
-            </Typography>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              className={styles.bottomContainer}
-            >
-              <TextField
-                id="result"
-                label="Your result"
-                variant="outlined"
-                type={"number"}
-                value={result}
-                onChange={this.onChange}
-                className={styles.textField}
-              />
-              <Button
-                type={"button"}
-                text={"Submit"}
-                onClick={this.sendResult}
-                className={styles.button}
-              />
-            </Grid>
-          </Grid>
         </Grid>
       </main>
     );
