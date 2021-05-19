@@ -20,18 +20,10 @@ class HttpService {
     this.axios.post(USER_REGISTER, { email, username, password });
 
   loginUser = (username, password) =>
-    this.axios
-      .post(USER_LOGIN, {
-        username,
-        password,
-      })
-      .then((response) => {
-        if (response.data.token) {
-          localStorage.setItem("user", JSON.stringify(response.data));
-          this.setTokenResult(response.data.token);
-        }
-      })
-      .catch(console.error);
+    this.axios.post(USER_LOGIN, {
+      username,
+      password,
+    });
 
   setTokenResult = (token) => {
     this.tokenResult = token;
